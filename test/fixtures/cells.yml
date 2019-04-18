@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game_session_id: 1
+  name: MyString
+  type: 
+  on_map: false
+  position_left: 1.5
+  position_top: 1.5
+  position_width: 1.5
+  position_height: 1.5
+
+two:
+  game_session_id: 1
+  name: MyString
+  type: 
+  on_map: false
+  position_left: 1.5
+  position_top: 1.5
+  position_width: 1.5
+  position_height: 1.5

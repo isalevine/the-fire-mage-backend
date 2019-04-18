@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  in_progress: false
+  complete: false
+  expiration_date: MyString
+
+two:
+  in_progress: false
+  complete: false
+  expiration_date: MyString
