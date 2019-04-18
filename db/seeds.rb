@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
+
 GameSession.all.destroy_all
 Terrain.all.destroy_all
 Cell.all.destroy_all

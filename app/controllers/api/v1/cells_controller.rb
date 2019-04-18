@@ -25,6 +25,8 @@ class Api::V1::CellsController < ApplicationController
 
     def update
       find_cell
+      puts "CELL PARAMS:"
+      puts cell_params
       @cell.update(cell_params)
       if @cell.save
         render json: @cell
@@ -39,7 +41,7 @@ class Api::V1::CellsController < ApplicationController
 
 
     def cell_params
-      params.permit(:id, :game_session_id, :name, :cell_type, :on_map, :inventory, :position_left, :position_top, :position_width, :position_height)
+      params.permit(:id, :game_session_id, :name, :cell_type, :on_map, {:inventory => []}, :position_left, :position_top, :position_width, :position_height)
     end
 
     def find_cell
