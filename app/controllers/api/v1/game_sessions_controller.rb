@@ -8,8 +8,6 @@ class Api::V1::GameSessionsController < ApplicationController
     render json: @game_session
   end
 
-  # def new
-  # end
 
   def create
     @game_session = GameSession.new
@@ -18,8 +16,6 @@ class Api::V1::GameSessionsController < ApplicationController
     end
   end
 
-  # def edit
-  # end
 
   def update
     find_game_session
@@ -29,6 +25,7 @@ class Api::V1::GameSessionsController < ApplicationController
     end
   end
 
+
   def destroy
   end
 
@@ -36,9 +33,9 @@ class Api::V1::GameSessionsController < ApplicationController
   private
 
 
-  # def game_session_params
-  #   params.require(:game_session).permit!
-  # end
+  def game_session_params
+    params.permit(:in_progress, :complete)
+  end
 
   def find_game_session
     @game_session = GameSession.find(params[:id])
