@@ -13,7 +13,7 @@ It is a top-down, mouse-based interface with controls and game logic based on Wa
 
   The Fire Mage's code can be used and modified to create new games. [A quick writeup on the JavaScript frontend and its files can be found here.](https://github.com/isalevine/the-fire-mage-frontend) 
 
-Currently, this backend API is still in demo mode--it was designed to some data (specifically terrain-tile data for saved games) in an inefficient manner to practice stress testing and debugging. A newer version is planned that will store the current data (240 rows containing only repetitive filepaths as strings) as one row per game (all strings shortened and combined into one to be parsed later).
+Currently, this backend API is still in demo mode--it was designed to handle some data (specifically terrain-tile data for saved games) in an inefficient manner to practice stress testing and debugging. A newer version is planned that will store the current data (240 rows containing only repetitive filepaths as strings) as one row per game (all strings shortened and combined into one to be parsed later).
   
 
 ## Install
