@@ -8,6 +8,7 @@ class Api::V1::TerrainsController < ApplicationController
 
   def create
     all_terrain_params.each do |terrain|
+      byebug
       @terrain = Terrain.new(game_session_id: terrain["game_session_id"], grid_x: terrain["grid_x"], grid_y: terrain["grid_y"], img_src: terrain["img_src"])
       @terrain.save
     end

@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_013613) do
+ActiveRecord::Schema.define(version: 2019_07_10_064521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "all_terrains", force: :cascade do |t|
+    t.integer "game_session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "img_src_array", default: [], array: true
+  end
 
   create_table "cells", force: :cascade do |t|
     t.integer "game_session_id"

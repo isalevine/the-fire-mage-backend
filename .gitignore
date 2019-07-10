@@ -21,3 +21,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Added by Isa
+.DS_Store
+/game-art/.DS_Store
