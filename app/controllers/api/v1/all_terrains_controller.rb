@@ -20,8 +20,9 @@ class Api::V1::AllTerrainsController < ApplicationController
       # @allTerrain.save
     end
     byebug
-    # @allTerrain = AllTerrain.where("game_session_id = " + params[:game_session_id])
-    # render json: @allTerrain
+    @allTerrain = AllTerrain.new(game_session_id: all_terrain_params[0]["game_session_id"], img_src_array: terrain_array)
+    @allTerrain.save
+    render json: @allTerrain
   end
 
 
