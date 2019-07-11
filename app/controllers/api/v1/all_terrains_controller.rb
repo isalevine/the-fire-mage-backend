@@ -13,13 +13,15 @@ class Api::V1::AllTerrainsController < ApplicationController
   # also, go back and figure out how to make the frontend send the tiles to the ALL_TERRAINS
   # table now, instead of the regular ol' TERRAINS table (which will be deprecated...??)
   def create
+    terrain_array = []
     all_terrain_params.each do |terrain|
-      byebug
-      @terrain = Terrain.new(game_session_id: terrain["game_session_id"], grid_x: terrain["grid_x"], grid_y: terrain["grid_y"], img_src: terrain["img_src"])
-      @terrain.save
+      terrain_array << terrain["img_src"][-5]
+      # @allTerrain = AllTerrain.new(game_session_id: terrain["game_session_id"], grid_x: terrain["grid_x"], grid_y: terrain["grid_y"], img_src: terrain["img_src"])
+      # @allTerrain.save
     end
-    @allTerrain = Terrain.where("game_session_id = " + params[:game_session_id])
-    render json: @allTerrain
+    byebug
+    # @allTerrain = AllTerrain.where("game_session_id = " + params[:game_session_id])
+    # render json: @allTerrain
   end
 
 
