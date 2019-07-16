@@ -3,7 +3,11 @@
 class Api::V1::AllTerrainsController < ApplicationController
 
   def index
-    @allTerrain = Terrain.where("game_session_id = " + params[:game_session_id])
+    @allTerrain = AllTerrain.where("game_session_id = " + params[:game_session_id])
+
+    # NEXT: write code to re-parse the img_src_array from @allTerrain
+    # => OR...write that in the frontend code for LoadTerrain()!
+
     render json: @allTerrain
   end
 
@@ -14,14 +18,14 @@ class Api::V1::AllTerrainsController < ApplicationController
   # table now, instead of the regular ol' TERRAINS table (which will be deprecated...??)
   def create
     terrain_array = []
+
     all_terrain_params.each do |terrain|
       terrain_array << terrain["img_src"][-5]
-      # @allTerrain = AllTerrain.new(game_session_id: terrain["game_session_id"], grid_x: terrain["grid_x"], grid_y: terrain["grid_y"], img_src: terrain["img_src"])
-      # @allTerrain.save
     end
-    byebug
-    # @allTerrain = AllTerrain.where("game_session_id = " + params[:game_session_id])
-    # render json: @allTerrain
+
+    @allTerrain = AllTerrain.new(game_session_id: all_terrain_params[0]["game_session_id"], img_src_array: terrain_array)
+    @allTerrain.save
+    render json: @allTerrain
   end
 
 
