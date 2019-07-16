@@ -27,6 +27,9 @@ class Api::V1::GameSessionsController < ApplicationController
 
 
   def destroy
+    find_game_session
+    @game_session.destroy
+    render json: {status: "GameSession deleted!"}
   end
 
 
