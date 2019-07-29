@@ -13,7 +13,7 @@ class Api::V1::GameSessionsController < ApplicationController
 
 
   def create
-    @game_session = GameSession.new(in_progress: true, completed: false)
+    @game_session = GameSession.new(in_progress: true, completed: false, expiration_date: 1)
     if @game_session.save
       render json: @game_session
     end
@@ -44,7 +44,7 @@ class Api::V1::GameSessionsController < ApplicationController
 
 
   def game_session_params
-    params.permit(:in_progress, :complete)
+    params.permit(:in_progress, :complete, :expiration_date)
   end
 
   def find_game_session
