@@ -31,6 +31,8 @@ class Api::V1::GameSessionsController < ApplicationController
     
     find_game_session
     @game_session.destroy
+    destroy_game_data
+
     render json: {status: "GameSession deleted!"}
   end
 
@@ -44,6 +46,13 @@ class Api::V1::GameSessionsController < ApplicationController
 
   def find_game_session
     @game_session = GameSession.find(params[:id])
+  end
+
+  def destroy_game_data
+    @all_terrain = AllTerrain.find_by(game_session_id: params[:id])
+    @all_terrain.destroy
+    @cells = Cell.find_by(game_session_id: params[:id])
+    @cells.destroy
   end
 
 
