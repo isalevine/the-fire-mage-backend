@@ -1,5 +1,6 @@
 class Api::V1::GameSessionsController < ApplicationController
 
+  # added index route for debugging on Heroku
   def index
     @game_sessions = GameSession.all
     render json: @game_sessions
@@ -12,7 +13,7 @@ class Api::V1::GameSessionsController < ApplicationController
 
 
   def create
-    @game_session = GameSession.new
+    @game_session = GameSession.new(in_progress: true, completed: false)
     if @game_session.save
       render json: @game_session
     end
