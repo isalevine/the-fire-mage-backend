@@ -1,7 +1,9 @@
 class Api::V1::GameSessionsController < ApplicationController
 
-  # def index
-  # end
+  def index
+    @game_sessions = GameSession.all
+    render json: @game_sessions
+  end
 
   def show
     find_game_session
