@@ -13,7 +13,7 @@ class Api::V1::GameSessionsController < ApplicationController
 
 
   def create
-    @game_session = GameSession.new(in_progress: true, completed: false, expiration_date: 1)
+    @game_session = GameSession.new(in_progress: true, complete: false, expiration_date: 1)
     if @game_session.save
       render json: @game_session
     end
