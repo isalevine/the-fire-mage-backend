@@ -13,7 +13,11 @@ class Api::V1::GameSessionsController < ApplicationController
 
 
   def create
-    @game_session = GameSession.new(in_progress: true, complete: false, expiration_date: 1)
+    # Time.now.to_f will generate time in SECONDS, not milliseconds
+    expiration = (Time.now.to_i * 1000) + 3600   # 10 minutes
+    check_expired_game_sessions
+
+    @game_session = GameSession.new(in_progress: true, complete: false, expiration: expiration)
     if @game_session.save
       render json: @game_session
     end
@@ -56,6 +60,15 @@ class Api::V1::GameSessionsController < ApplicationController
     @all_terrain.destroy
     @cells = Cell.find_by(game_session_id: params[:id])
     @cells.destroy
+  end
+
+  def check_expired_game_sessions
+    expiration = Time.now.to_i
+    @game_sessions = GameSession.where("expiration > ?", 1)
+    # byebug
+    if @game_sessions
+      @game_sessions.destroy_all
+    end
   end
 
 

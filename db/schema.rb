@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_222120) do
+ActiveRecord::Schema.define(version: 2019_07_31_224302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 2019_07_29_222120) do
   create_table "game_sessions", force: :cascade do |t|
     t.boolean "in_progress", default: true, null: false
     t.boolean "complete", default: false, null: false
-    t.string "expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "expiration"
   end
 
   create_table "terrains", force: :cascade do |t|
