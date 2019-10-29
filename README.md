@@ -2,7 +2,7 @@
 
 ![gif of demo for The Fire Mage](https://raw.githubusercontent.com/isalevine/the-fire-mage-frontend/master/firemage-demo.gif)
 
-The Fire Mage is a proof-of-concept game for the underlying vanilla JavaScript engine, tentatively titled Real-Time Unit Mover (RTUM). 
+The Fire Mage a vanilla JavaScript engine, featuring the proof-of-concept game, "The Fire Mage"! (Original title, huh?)
 
 It is a top-down, mouse-based interface with controls and game logic based on Warcraft II, and an art style paying homage to The Legend of Zelda--special thanks to [Jerom on OpenGameArt.org for the art!](https://opengameart.org/content/16x16-fantasy-tileset)
 
