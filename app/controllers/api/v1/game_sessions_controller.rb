@@ -11,7 +11,6 @@ class Api::V1::GameSessionsController < ApplicationController
     render json: @game_session
   end
 
-
   def create
     # Time.now.to_f will generate time in SECONDS, not milliseconds
     expiration = (Time.now.to_i * 1000) + 3600   # 10 minutes
@@ -23,7 +22,6 @@ class Api::V1::GameSessionsController < ApplicationController
     end
   end
 
-
   def update
     find_game_session
     @game_session.update(game_session_params)
@@ -31,7 +29,6 @@ class Api::V1::GameSessionsController < ApplicationController
       render json: @game_session
     end
   end
-
 
   def destroy
     puts "Delete request detected!"
@@ -43,9 +40,7 @@ class Api::V1::GameSessionsController < ApplicationController
     render json: {status: "GameSession deleted!"}
   end
 
-
   private
-
 
   def game_session_params
     params.permit(:in_progress, :complete, :expiration_date)
@@ -70,6 +65,5 @@ class Api::V1::GameSessionsController < ApplicationController
       @game_sessions.destroy_all
     end
   end
-
 
 end

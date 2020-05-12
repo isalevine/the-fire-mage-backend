@@ -5,7 +5,6 @@ class Api::V1::TerrainsController < ApplicationController
     render json: @allTerrain
   end
 
-
   def create
     all_terrain_params.each do |terrain|
       byebug
@@ -16,13 +15,10 @@ class Api::V1::TerrainsController < ApplicationController
     render json: @allTerrain
   end
 
-
   private
-
 
   def all_terrain_params
     params.require(:allTerrain)
   end
-
 
 end
