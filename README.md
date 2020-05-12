@@ -11,6 +11,8 @@ It is a top-down, mouse-based interface with controls and game logic based on Wa
 ### 1. [Playable demo on Heroku here!](https://the-fire-mage.herokuapp.com/)
 May require a refresh to ensure that both the frontend and backend dynos on Heroku are active.
 
+A mouse is recommended for ease of left- and right-clicking (as the controls are based on Starcraft / Warcraft unit selection), but is not required.
+
 ### 2. A collision-detector [written completely in vanilla JavaScript!](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L9)
 As part of the core game engine, the `collider` object listens for collisions between different types of cells (such as Units and Items), or cells and the border of the map.
 
@@ -20,7 +22,11 @@ Additionally, to ensure that cells do not get "stuck" when colliding with the bo
 
 The `collider` starts listening for collisions when cell movement is detected, and listens for collisions every 50 milliseconds until all movement stops.
 
-### 
+### 3. Unit movements are animated by vanilla JavaScript and CSS style manipulation!
+The code uses a dynamic CSS style to keep unit speed consistent, regardless of how far they are moving.
+
+### 4. Game sessions are persisted between browser refreshes!
+Persisted data includes the randomly-generated terrain, the location of all cells, and any items in your inventory.
   
 
 ## Overview
