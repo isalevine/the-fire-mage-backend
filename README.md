@@ -13,20 +13,22 @@ May require a refresh to ensure that both the frontend and backend dynos on Hero
 
 A mouse is recommended for ease of left- and right-clicking (as the controls are based on Starcraft / Warcraft unit selection), but is not required.
 
-### 2. A collision-detector [written completely in vanilla JavaScript!](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L9)
-As part of the core game engine, the `collider` object listens for collisions between different types of cells (such as Units and Items), or cells and the border of the map.
+### 2. A collision-detector [written completely in vanilla JavaScript!](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js)
+As part of the core game engine, the `collider` object listens for [collisions between different types of cells](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L47) (such as Units and Items), or [cells and the border of the map](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L9).
 
-This is achieved by storing cell location data as state, and having each cell have a hitbox div within it. When the `collider` detects the hitboxes of two cells overlapping, it triggers an event.
+This is achieved by storing cell location data as state (and [in the database](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/database-functions.js#L235) to be persisted between browser reloads), and having each cell have a hitbox div within it. When the `collider` detects the hitboxes of two cells overlapping, it [triggers an event](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L91).
 
-Additionally, to ensure that cells do not get "stuck" when colliding with the border of the map, there is a "bounce" implemented to rebound moving units away from the map border by several pixels.
+Additionally, to ensure that cells do not get "stuck" when colliding with the border of the map, there is a "bounce" implemented to [rebound moving units away from the map border by several pixels](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L23).
 
-The `collider` starts listening for collisions when cell movement is detected, and listens for collisions every 50 milliseconds until all movement stops.
+The game starts listening for collisions when cell movement is detected, and [listens for collisions every 50 milliseconds until all movement stops](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/unit-movement.js#L47).
 
-### 3. Unit movements are animated by vanilla JavaScript and CSS style manipulation!
-The code uses a dynamic CSS style to keep unit speed consistent, regardless of how far they are moving.
+### 3. Unit movements are [animated by vanilla JavaScript and CSS style manipulation](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/unit-movement.js#L13)!
+The code uses [a dynamic CSS style to keep unit speed consistent](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/unit-movement.js#L27), regardless of how far they are moving.
 
 ### 4. Game sessions are persisted between browser refreshes!
 Persisted data includes the randomly-generated terrain, the location of all cells, and any items in your inventory.
+
+### 5. Check out the [Contribution Guide](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CONTRIBUTION_GUIDE.md), [Changelog](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CHANGELOG.md), and [Refactor Notes](https://github.com/isalevine/the-fire-mage-frontend/blob/master/REFACTOR_NOTES.md) as part of my effort to open-source this engine!
   
 
 ## Overview
